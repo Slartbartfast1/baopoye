@@ -253,4 +253,17 @@
     .mint-navbar{
         margin-top:40px;
     }
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.6s ease;
+    }
+
+    .v-move {
+        transition: all 0.6s ease;
+    }
 </style>
