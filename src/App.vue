@@ -1,30 +1,25 @@
 <template>
 
   <div id="app">
-    <mt-header title="爆破页">
-      <router-link to="/" slot="left">
-        <mt-button icon="back">返回</mt-button>
+    <router-view/>
+    <nav class="mui-bar mui-bar-tab">
+      <router-link class="mui-tab-item" to="/#">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
       </router-link>
-      <mt-button icon="more" slot="right"></mt-button>
-    </mt-header>
-    <mt-tabbar v-model="selected">
-      <mt-tab-item id="外卖">
-        <img slot="icon" src="../src/assets/logo.png">
-        外卖
-      </mt-tab-item>
-      <mt-tab-item id="订单">
-        <img slot="icon" src="../src/assets/logo.png">
-        订单
-      </mt-tab-item>
-      <mt-tab-item id="发现">
-        <img slot="icon" src="../src/assets/logo.png">
-        发现
-      </mt-tab-item>
-      <mt-tab-item id="我的">
-        <img slot="icon" src="../src/assets/logo.png">
-        我的
-      </mt-tab-item>
-    </mt-tabbar>
+      <router-link class="mui-tab-item" to="/news">
+        <span class="mui-icon mui-icon-list"><span class="mui-badge">9</span></span>
+        <span class="mui-tab-label">新闻</span>
+      </router-link>
+      <router-link class="mui-tab-item" to="/2">
+        <span class="mui-icon mui-icon-contact"></span>
+        <span class="mui-tab-label">通讯录</span>
+      </router-link>
+      <router-link class="mui-tab-item" to="/3">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">设置</span>
+      </router-link>
+    </nav>
   </div>
 </template>
 
