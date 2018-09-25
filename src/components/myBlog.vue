@@ -1,10 +1,12 @@
 <template>
-    <div id="box" fixed="true">
-        <mt-header title="爆破页">
-            <router-link to="/#" slot="left">
+    <div id="box" >
+        <mt-header title="我的博客" fixed="true">
+            <router-link to="/myBlog" slot="left">
                 <mt-button icon="back">返回</mt-button>
             </router-link>
-            <mt-button icon="more" slot="right"></mt-button>
+            <router-link to="/admin" slot="right">
+                <span class="mui-icon mui-icon-compose"></span>
+            </router-link>
         </mt-header>
         <iframe src="https://www.slartbartfast.cn" frameborder="0"></iframe>
     </div>
@@ -19,11 +21,11 @@
 <style scoped lang="scss">
     #box {
         padding-bottom:50px;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 50px);
         iframe {
             display: block;
             width: 100%;
-            height:calc(100vh - 80px);
+            height:calc(100vh - 50px);
         }
     }
 </style>
