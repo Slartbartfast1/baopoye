@@ -12,9 +12,8 @@ export default new Vuex.Store({
     add(state,todo){
       state.todo.push(todo)
     },
-      remove(state,todo){
-      var index=state.todo.indexOf(todo);
-          state.todo.splice(index,1)
+      remove(state,i){
+          state.todo.splice(i,1)
       }
 
   },
