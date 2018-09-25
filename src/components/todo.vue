@@ -12,8 +12,11 @@
                 </mt-field>
             </div>
             <ul class="mui-table-view">
-                <li class="mui-table-view-cell" v-for="item in todo" :key="item.work">{{item.work}}<span
-                        @click.prevent="remove" class="mui-icon mui-icon-closeempty mui-pull-right"></span></li>
+                <transition-group appear>
+                <li class="mui-table-view-cell" v-for="(item, i) in todo" :key="item.work">{{item.work}}<span
+                        @click.prevent="remove(i)" class="mui-icon mui-icon-closeempty mui-pull-right"></span>
+                </li>
+                </transition-group>
             </ul>
         </div>
     </div>
@@ -35,9 +38,8 @@ import store from '../store.js'
                 var a = {work: this.work};
                 this.$store.commit('add',a)
             },
-            remove(){
-                var b={work: this.key};
-                this.$store.commit('remove',b)
+            remove(i){
+                this.$store.commit('remove',i)
             }
         },
     }
@@ -50,5 +52,19 @@ import store from '../store.js'
 
     ul {
         margin-top: 10px;
+    }
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.6s ease;
+    }
+
+    .v-move {
+        transition: all 0.6s ease;
     }
 </style>

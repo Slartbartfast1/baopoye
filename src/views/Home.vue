@@ -12,17 +12,19 @@
                     </div>
                 </div>
             </a>
+            <transition-group appear>
             <mt-cell-swipe
-                    v-for="item in todos"
+                    v-for="(item,i) in todos"
                     :key="item.work"
                     :title=item.work
                     :right="[
     {
       content: '删除',
       style: { background: 'red', color: '#fff' },
-      handler: remove
+      handler: function(){return remove(i)}
     }
   ]"></mt-cell-swipe>
+            </transition-group>
         </div>
         <!--<p v-for="item in todos" :key="item.work">{{item.work}}</p>-->
 
@@ -44,9 +46,8 @@
             }
         },
         methods: {
-            remove() {
-                var obj = {work: this.key};
-                this.$store.commit('remove', obj)
+            remove(i) {
+                this.$store.commit('remove',i)
             }
         }
     }
@@ -65,7 +66,7 @@
         margin: 10px;
     }
 
-    span {
+    .mint-cell-text{
         color: #42b983;
     }
 
@@ -75,5 +76,18 @@
     }
     .home{
         margin-bottom: 55px;
+    }
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.6s ease;
+    }
+
+    .v-move {
+        transition: all 0.6s ease;
     }
 </style>
