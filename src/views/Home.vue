@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <mt-header title="爆破页">
+        <mt-header title="myApp">
         </mt-header>
         <img alt="Vue logo" src="../assets/logo.png">
         <index msg="myApp"/>
