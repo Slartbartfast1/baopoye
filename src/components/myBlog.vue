@@ -8,7 +8,7 @@
                 <span class="mui-icon mui-icon-compose"></span>
             </router-link>
         </mt-header>
-        <iframe src="https://www.slartbartfast.cn" frameborder="0"></iframe>
+        <iframe src="https://slartbartfast.cn/" frameborder="0"></iframe>
     </div>
 </template>
 

@@ -13,7 +13,7 @@
             <mt-tab-item id="tab-container5">军事</mt-tab-item>
         </mt-navbar>
         <!-- tab-container -->
-        <mt-tab-container v-model="active" swipeable>
+        <mt-tab-container v-model="active" swipeable="true">
 
             <mt-tab-container-item id="tab-container1">
                 <ul class="mui-table-view">
@@ -111,11 +111,13 @@
     export default {
         name: "news",
         mounted: function () {
+            Indicator.open();
             this.getTouTiao();
             this.getSheHui();
             this.getYuLe();
             this.getTiYu();
             this.getJunShi();
+            Indicator.close();
         },
 
         data() {
@@ -136,8 +138,8 @@
 
         methods: {
             getTouTiao() {
-                Indicator.open();
-                this.$http.post("http://query.yahooapis.com/v1/public/yql", {
+
+                this.$http.post("https://query.yahooapis.com/v1/public/yql", {
                     q: "select * from json where url=\'" + this.touTiaoUrl + "'",
                     //代理返回格式
                     format: "json"
@@ -150,14 +152,14 @@
                         },
                         (error) => {
                             console.log(error);
-                            Indicator.close();
+
                         }
                     );
 
             },
             getSheHui() {
-                Indicator.open();
-                this.$http.post("http://query.yahooapis.com/v1/public/yql", {
+
+                this.$http.post("https://query.yahooapis.com/v1/public/yql", {
                     q: "select * from json where url=\'" + this.sheHuiUrl + "'",
 
                     format: "json"
@@ -166,18 +168,18 @@
                         (response) => {
                             // console.log(response.body.query.results.json.result.data)
                             this.sheHui = response.body.query.results.json.result.data
-                            Indicator.close();
+
 
                         },
                         (error) => {
                             console.log(error);
-                            Indicator.close();
+
                         }
                     );
             },
             getYuLe() {
-                Indicator.open();
-                this.$http.post("http://query.yahooapis.com/v1/public/yql", {
+
+                this.$http.post("https://query.yahooapis.com/v1/public/yql", {
                     q: "select * from json where url=\'" + this.yuLeUrl + "'",
                     format: "json"
                 }, {emulateJSON: true})
@@ -185,48 +187,47 @@
                         (response) => {
                             // console.log(response.body.query.results.json.result.data)
                             this.yuLe = response.body.query.results.json.result.data
-                            Indicator.close();
+
 
                         },
                         (error) => {
                             console.log(error);
-                            Indicator.close();
+
                         }
                     );
             },
             getTiYu() {
-                Indicator.open();
-                this.$http.post("http://query.yahooapis.com/v1/public/yql", {
+
+                this.$http.post("https://query.yahooapis.com/v1/public/yql", {
                     q: "select * from json where url=\'" + this.tiYuUrl + "'",
                     format: "json"
                 }, {emulateJSON: true})
                     .then(
                         (response) => {
                             this.tiYu = response.body.query.results.json.result.data
-                            Indicator.close();
 
                         },
                         (error) => {
                             console.log(error);
-                            Indicator.close();
+
                         }
                     );
             },
             getJunShi() {
-                Indicator.open();
-                this.$http.post("http://query.yahooapis.com/v1/public/yql", {
+
+                this.$http.post("https://query.yahooapis.com/v1/public/yql", {
                     q: "select * from json where url=\'" + this.junShiUrl + "'",
                     format: "json"
                 }, {emulateJSON: true})
                     .then(
                         (response) => {
                             this.junShi = response.body.query.results.json.result.data
-                            Indicator.close();
+
 
                         },
                         (error) => {
                             console.log(error);
-                            Indicator.close();
+
                         }
                     );
             },
