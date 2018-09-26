@@ -37,6 +37,7 @@ import store from '../store.js'
             add() {
                 var a = {work: this.work};
                 this.$store.commit('add',a)
+                this.work='';
             },
             remove(i){
                 this.$store.commit('remove',i)
